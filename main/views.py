@@ -1,9 +1,20 @@
 from django.shortcuts import render
+from .models import Post, Person, News
 
 
 # Басты бет
 def index(request):
-    return render(request, 'main/index.html', {})
+    last_news = News.objects.filter(is_public=True)[:3]
+    last_post = Post.objects.filter(is_public=True)[:3]
+    person = Person.objects.filter()[:3]
+
+    context = {
+        'last_news': last_news,
+        'last_post': last_post,
+        'person': person,
+    }
+
+    return render(request, 'main/index.html', context)
 
 
 # Тарихи деректер
