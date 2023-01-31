@@ -10,7 +10,9 @@ urlpatterns = [
 
 
     path('mausoleum/', views.mausoleum, name='mausoleum'),
-    path('persons/', views.persons, name='persons'),
+    path('person/', views.person, name='person'),
+    path('person_detail/<pk>/', views.person_detail, name='person_detail'),
+
     path('department_of_mothers/', views.department_of_mothers, name='department_of_mothers'),
 
 
@@ -25,7 +27,12 @@ urlpatterns = [
 
 
     path('charity/', views.charity, name='charity'),
+    path('news/', views.news, name='news'),
+    path('news/<pk>/', views.news_detail, name='news_detail'),
+
     path('articles/', views.articles, name='articles'),
+    path('articles/<pk>/', views.article_detail, name='article_detail'),
+
     path('children/', views.children, name='children'),
     path('mediagallery/', views.mediagallery, name='mediagallery'),
 

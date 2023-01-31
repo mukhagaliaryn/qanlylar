@@ -7,6 +7,7 @@ class Post(models.Model):
     owner = models.ForeignKey(User, on_delete=models.CASCADE, verbose_name='Автор')
     title = models.CharField(verbose_name='Тема', max_length=255)
     image = models.ImageField(verbose_name='Изображение', blank=True, null=True, upload_to='main/posts/')
+    about = models.TextField(verbose_name='О статье', blank=True, null=True)
     description = RichTextField(verbose_name='Описание', blank=True, null=True)
     date_created = models.DateTimeField(verbose_name='Дата создание', auto_now_add=True)
     is_public = models.BooleanField(verbose_name='Публикация', default=False)

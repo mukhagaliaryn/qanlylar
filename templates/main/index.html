@@ -59,14 +59,15 @@
 
 <!-- Main page block -->
 <!-- ========================================================================================================================================================= -->
-<div class="flex justify-between items-start my-4 mx-2 sm:mx-0">
+<div class="flex justify-between items-start my-8 mx-2 sm:mx-0">
     <div class="lg:mr-4">
 
         <!-- Last news... -->
         <div id="last-news">
-            <div class="flex justify-between items-center mb-6">
+            <div class="flex justify-between items-center">
                 <h1 class="ml-2 font-bold text-3xl text-gray-800">Соңғы жаңалықтар</h1>
-                <a href="#" class="inline-flex items-center font-medium text-blue-600 hover:text-blue-800 dark:text-blue-500 dark:hover:text-blue-700">
+               
+                <a href="{% url 'news' %}" class="inline-flex items-center font-medium text-blue-600 hover:text-blue-800 dark:text-blue-500 dark:hover:text-blue-700">
                     Толығырақ
                     <svg class="w-6 h-6 ml-1" fill="currentColor" viewBox="0 0 20 20"
                         xmlns="http://www.w3.org/2000/svg">
@@ -77,8 +78,7 @@
                 </a>
             </div>
 
-
-            <div class="">
+            <div class="mt-6">
                 {% for news in last_news %}
                     <div class="bg-white border border-gray-200 rounded-lg mt-2 shadow dark:bg-gray-800 dark:border-gray-700">
                         <div class="p-5 flex items-center justify-between">
@@ -86,7 +86,7 @@
                                 {{ news.title }}
                             </h5>
 
-                            <a href="#"
+                            <a href="{% url 'news_detail' news.id %}"
                                 class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
                                 Оқып шығу
                                 <svg aria-hidden="true" class="w-4 h-4 ml-2 -mr-1" fill="currentColor" viewBox="0 0 20 20"
@@ -107,7 +107,7 @@
         <div id="last-posts" class="mt-10">
             <div class="flex justify-between items-center mb-6">
                 <h1 class="ml-2 font-bold text-3xl text-gray-800">Мақалалар</h1>
-                <a href="#" class="inline-flex items-center font-medium text-blue-600 hover:text-blue-800 dark:text-blue-500 dark:hover:text-blue-700">
+                <a href="{% url 'articles' %}" class="inline-flex items-center font-medium text-blue-600 hover:text-blue-800 dark:text-blue-500 dark:hover:text-blue-700">
                     Толығырақ
                     <svg class="w-6 h-6 ml-1" fill="currentColor" viewBox="0 0 20 20"
                         xmlns="http://www.w3.org/2000/svg">
@@ -118,21 +118,20 @@
                 </a>
             </div>
 
-
             <div class="grid gap-1 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
                 {% for post in last_post %}
                     <div class="bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-                        <a href="#">
+                        <a href="{% url 'article_detail' post.id %}">
                             <img class="rounded-t-lg w-full" src="{{ post.image.url }}" alt="" />
                         </a>
                         <div class="p-5">
-                            <a href="#">
-                                <h5 class="mb-2 text-2xl line-clamp-1 font-bold tracking-tight text-gray-900 dark:text-white">
+                            <a href="{% url 'article_detail' post.id %}">
+                                <h5 class="mb-2 text-xl line-clamp-2 font-bold tracking-tight text-gray-900 dark:text-white">
                                     {{ post.title }}
                                 </h5>
                             </a>
-                            <p class="mb-3 font-normal text-gray-700 dark:text-gray-400 line-clamp-3">{{ post.description }}</p>
-                            <a href="#"
+                            <p class="mb-3 font-normal text-gray-500 dark:text-gray-400 line-clamp-3">{{ post.about }}</p>
+                            <a href="{% url 'article_detail' post.id %}"
                                 class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
                                 Толығырақ
                                 <svg aria-hidden="true" class="w-4 h-4 ml-2 -mr-1" fill="currentColor" viewBox="0 0 20 20"
@@ -170,7 +169,7 @@
                         шекарасын, астанасы Битянь қаласының қайда екенін, тәуелді бес иеліктің
                         қалай орналасқанын және басқа да көптеген нәрселерді айқын анықтау мүмкін емес.
                     </p>
-                    <a href="#"
+                    <a href="{% url 'historic' %}"
                         class="mt-4 inline-flex items-center font-medium text-blue-600 hover:text-blue-800 dark:text-blue-500 dark:hover:text-blue-700">
                         Толығырақ
                         <svg class="w-6 h-6 ml-1" fill="currentColor" viewBox="0 0 20 20"
@@ -185,44 +184,44 @@
             </div>
         </div>
 
-            <!-- Persons -->
-            <div id="persons" class="mt-10">
-                <div class="flex justify-between items-center mb-6">
-                    <h1 class="ml-2 font-bold text-3xl text-gray-800">Тұлғалар</h1>
-    
-                    <a href="#" class="inline-flex items-center font-medium text-blue-600 hover:text-blue-800 dark:text-blue-500 dark:hover:text-blue-700">
-                        Толығырақ
-                        <svg class="w-6 h-6 ml-1" fill="currentColor" viewBox="0 0 20 20"
-                            xmlns="http://www.w3.org/2000/svg">
-                            <path fill-rule="evenodd"
-                                d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
-                                clip-rule="evenodd"></path>
-                        </svg>
-                    </a>
-                </div>
-    
-                <div id="list" class="grid gap-1 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-                    {% for people in person %}
-                        <div class="w-full bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-                            <div class="flex flex-col items-center pt-10 pb-10">
-                                <img class="w-24 h-24 mb-3 rounded-full shadow-lg" src="{{ people.image.url }}" alt="Bonnie image"/>
-                                <h5 class="mb-1 text-xl font-medium text-gray-900 dark:text-white">{{ people.full_name }}</h5>
-                                <span class="text-sm text-gray-500 dark:text-gray-400">{{ people.specialist }}</span>
-                                <div class="flex mt-4 space-x-3 md:mt-6">
-                                    <a href="#" class="inline-flex items-center px-4 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Толығырақ</a>
-                                </div>
+        <!-- Persons -->
+        <div id="persons" class="mt-10">
+            <div class="flex justify-between items-center mb-6">
+                <h1 class="ml-2 font-bold text-3xl text-gray-800">Тұлғалар</h1>
+
+                <a href="{% url 'person' %}" class="inline-flex items-center font-medium text-blue-600 hover:text-blue-800 dark:text-blue-500 dark:hover:text-blue-700">
+                    Толығырақ
+                    <svg class="w-6 h-6 ml-1" fill="currentColor" viewBox="0 0 20 20"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd"
+                            d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
+                            clip-rule="evenodd"></path>
+                    </svg>
+                </a>
+            </div>
+
+            <div id="list" class="grid gap-1 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+                {% for people in person %}
+                    <div class="w-full bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+                        <div class="flex flex-col items-center pt-10 pb-10">
+                            <img class="w-24 h-24 mb-3 rounded-full shadow-lg" src="{{ people.image.url }}" alt="Bonnie image"/>
+                            <h5 class="mb-1 text-xl font-medium text-gray-900 dark:text-white">{{ people.full_name }}</h5>
+                            <span class="text-sm text-gray-500 dark:text-gray-400">{{ people.specialist }}</span>
+                            <div class="flex mt-4 space-x-3 md:mt-6">
+                                <a href="{% url 'person_detail' people.id %}" class="inline-flex items-center px-4 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Толығырақ</a>
                             </div>
                         </div>
-                    {% endfor %}
-                </div>
+                    </div>
+                {% endfor %}
             </div>
+        </div>
 
 
         <!-- Gallery -->
         <div id="gallery" class="mt-10">
             <div class="flex justify-between items-center mb-6">
                 <h1 class="ml-2 font-bold text-3xl text-gray-800">Медиагалерея</h1>
-                <a href="#" class="inline-flex items-center font-medium text-blue-600 hover:text-blue-800 dark:text-blue-500 dark:hover:text-blue-700">
+                <a href="{% url 'mediagallery' %}" class="inline-flex items-center font-medium text-blue-600 hover:text-blue-800 dark:text-blue-500 dark:hover:text-blue-700">
                     Толығырақ
                     <svg class="w-6 h-6 ml-1" fill="currentColor" viewBox="0 0 20 20"
                         xmlns="http://www.w3.org/2000/svg">
@@ -257,8 +256,7 @@
 
     <!-- President -->
     <!-- ========================================================================================================================================================= -->
-    <div
-        class="mt-14 min-w-[320px] bg-white border border-gray-200 rounded-lg shadow  dark:bg-gray-800 dark:border-gray-700 hidden lg:block">
+    <div class="mt-14 min-w-[320px] bg-white border border-gray-200 rounded-lg shadow  dark:bg-gray-800 dark:border-gray-700 hidden lg:block">
         <div class="flex flex-col items-center py-5 px-2">
             <img class="w-24 h-24 mb-3 mt-3 rounded-full shadow-lg" src="{% static './images/president.jpg' %}"
                 alt="Қасым-Жомарт Тоқаев" />

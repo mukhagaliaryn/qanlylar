@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from .models import Post, Person, News, Gallery
 
 
@@ -43,8 +43,16 @@ def mausoleum(request):
     return render(request, 'main/teaching/mausoleum.html', {})
 
 
-def persons(request):
-    return render(request, 'main/teaching/persons.html', {})
+def person(request):
+    all_person = Person.objects.filter()
+
+    return render(request, 'main/teaching/person/person.html', {'all_person': all_person})
+
+
+def person_detail(request, pk):
+    person = get_object_or_404(Person, pk=pk)
+
+    return render(request, 'main/teaching/person/person_detail.html', {'person': person})
 
 
 def department_of_mothers(request):
@@ -84,9 +92,29 @@ def charity(request):
     return render(request, 'main/charity.html', {})
 
 
+# Жаңалықтар
+def news(request):
+    all_news = News.objects.filter(is_public=True)
+
+    return render(request, 'main/news/news.html', {'all_news': all_news})
+
+
+def news_detail(request, pk):
+    new_detail = get_object_or_404(News, pk=pk)
+
+    return render(request, 'main/news/news_detail.html', {'new_detail': new_detail})
+
+
 # Мақалалар
 def articles(request):
-    return render(request, 'main/articles.html', {})
+    posts = Post.objects.filter(is_public=True)
+
+    return render(request, 'main/articles/articles.html', {'posts': posts})
+
+
+def article_detail(request, pk):
+    post = get_object_or_404(Post, pk=pk)
+    return render(request, 'main/articles/article_detail.html', {'post': post})
 
 
 # Балалар бөлімі
@@ -96,4 +124,5 @@ def children(request):
 
 # Медиагалерея
 def mediagallery(request):
-    return render(request, 'main/mediagallery.html', {})
+    galleries = Gallery.objects.filter()
+    return render(request, 'main/mediagallery.html', {'galleries': galleries})

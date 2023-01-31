@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Мақалалар{% endblock %}
+
+{% block content %}
+
+<!-- Historic page block -->
+<!-- ========================================================================================================================================================= -->
+<div class="flex justify-between items-start my-4">
+    
+    <div id="posts" class="lg:mr-4 mx-2 lg:mx-0">
+        <h1 class="font-bold text-3xl text-gray-800">Мақалалар</h1>
+
+        <div class="grid gap-1 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 mt-6">
+            {% for post in posts %}
+                <div class="bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+                    <a href="{% url 'article_detail' post.id %}">
+                        <img class="rounded-t-lg w-full" src="{{ post.image.url }}" alt="" />
+                    </a>
+                    <div class="p-5">
+                        <a href="{% url 'article_detail' post.id %}">
+                            <h5 class="mb-2 text-xl line-clamp-2 font-bold tracking-tight text-gray-900 dark:text-white">
+                                {{ post.title }}
+                            </h5>
+                        </a>
+                        <p class="mb-3 font-normal text-gray-700 dark:text-gray-400 line-clamp-3">{{ post.about }}</p>
+                        <a href="{% url 'article_detail' post.id %}"
+                            class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                            Толығырақ
+                            <svg aria-hidden="true" class="w-4 h-4 ml-2 -mr-1" fill="currentColor" viewBox="0 0 20 20"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd"
+                                    d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
+                                    clip-rule="evenodd"></path>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+
+    <!-- President -->
+    <!-- ========================================================================================================================================================= -->
+    <div class="mt-14 min-w-[320px] bg-white border border-gray-200 rounded-lg shadow  dark:bg-gray-800 dark:border-gray-700 hidden lg:block">
+        <div class="flex flex-col items-center py-5 px-2">
+            <img class="w-24 h-24 mb-3 mt-3 rounded-full shadow-lg" src="{% static './images/president.jpg' %}"
+                alt="Қасым-Жомарт Тоқаев" />
+            <h5 class="mb-1 text-xl font-bold text-gray-900 dark:text-white">Қасым-Жомарт Тоқаев</h5>
+            <span class="text-sm text-gray-700 dark:text-gray-600">Қазақстан Республикасының президенті</span>
+            <span class="text-sm text-gray-400 dark:text-gray-300 text-center mt-2">
+                Қазақстан халықаралық міндеттемелеріне және адам құқықтары мен заң 
+                үстемдігі саласындағы әмбебап қағидаттарға бейілдігін сақтайды. 
+                Біз саяси жаңғыруға негізделген бағытымызды ешқашан өзгертпейміз.
+            </span>
+        </div>
+    </div>
+</div>
+{% endblock content %}
