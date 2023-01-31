@@ -13,6 +13,7 @@ develop-eggs/
 dist/
 downloads/
 media/
+node_modules/
 eggs/
 .eggs/
 lib/

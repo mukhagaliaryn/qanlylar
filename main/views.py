@@ -1,17 +1,19 @@
 from django.shortcuts import render
-from .models import Post, Person, News
+from .models import Post, Person, News, Gallery
 
 
 # Басты бет
 def index(request):
     last_news = News.objects.filter(is_public=True)[:3]
-    last_post = Post.objects.filter(is_public=True)[:3]
-    person = Person.objects.filter()[:3]
+    last_post = Post.objects.filter(is_public=True)[:4]
+    person = Person.objects.filter()[:4]
+    galleries = Gallery.objects.filter()[:4]
 
     context = {
         'last_news': last_news,
         'last_post': last_post,
         'person': person,
+        'galleries': galleries
     }
 
     return render(request, 'main/index.html', context)
