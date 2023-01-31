@@ -17,7 +17,7 @@
         <!-- Header -->
         <nav class="sticky top-0 px-2 z-50 py-2 bg-white border-gray-200 dark:bg-gray-900 dark:border-gray-700">
             <div class="container flex flex-wrap items-center justify-between mx-auto">
-                <a href="#" class="flex items-center">
+                <a href="{% url 'index' %}" class="flex items-center">
                     <img src="{% static './images/logo.jpg' %}" class="h-6 mr-3 sm:h-10" alt="Logo" />
                     <span class="self-center text-2xl font-bold font-inter whitespace-nowrap dark:text-white">Қаңлылар</span>
                 </a>
@@ -37,7 +37,7 @@
                 <div class="hidden w-full md:block md:w-auto" id="navbar-dropdown">
                     <ul class="flex flex-col p-4 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
                         <li>
-                            <a href="#"
+                            <a href="{% url 'index' %}"
                                 class="block py-2 pl-3 pr-4 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 md:dark:text-white dark:bg-blue-600 md:dark:bg-transparent"
                                 aria-current="page">Басты бет</a>
                         </li>
@@ -60,19 +60,19 @@
                                 <ul class="py-2 text-sm text-gray-700 dark:text-gray-400"
                                     aria-labelledby="dropdownLargeButton">
                                     <li>
-                                        <a href="#"
+                                        <a href="{% url 'historic' %}"
                                             class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Тарихи деректер</a>
                                     </li>
                                     <li>
-                                        <a href="#"
+                                        <a href="{% url 'legacy' %}"
                                             class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Қазба мұралар</a>
                                     </li>
                                     <li>
-                                        <a href="#"
+                                        <a href="{% url 'reviews' %}"
                                             class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Ғалымдар пікірі</a>
                                     </li>                                    
                                     <li>
-                                        <a href="#"
+                                        <a href="{% url 'books' %}"
                                             class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Кітаптар</a>
                                     </li>
                                 </ul>
@@ -96,15 +96,15 @@
                                 <ul class="py-2 text-sm text-gray-700 dark:text-gray-400"
                                     aria-labelledby="dropdownLargeButton">
                                     <li>
-                                        <a href="#"
+                                        <a href="{% url 'mausoleum' %}"
                                             class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Кесене</a>
                                     </li>
                                     <li>
-                                        <a href="#"
+                                        <a href="{% url 'persons' %}"
                                             class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Тұлғалар</a>
                                     </li>                                    
                                     <li>
-                                        <a href="#"
+                                        <a href="{% url 'department_of_mothers' %}"
                                             class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Ардақты аналар бөлімі</a>
                                     </li>
                                 </ul>
@@ -128,23 +128,23 @@
                                 <ul class="py-2 text-sm text-gray-700 dark:text-gray-400"
                                     aria-labelledby="dropdownLargeButton">
                                     <li>
-                                        <a href="#"
+                                        <a href="{% url 'grand_words' %}"
                                             class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Аталар сөзі</a>
                                     </li>
                                     <li>
-                                        <a href="#"
+                                        <a href="{% url 'termes' %}"
                                             class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Термелер</a>
                                     </li>                                    
                                     <li>
-                                        <a href="#"
+                                        <a href="{% url 'songs' %}"
                                             class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Әндер</a>
                                     </li>
                                     <li>
-                                        <a href="#"
+                                        <a href="{% url 'states' %}"
                                             class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Күйлер</a>
                                     </li>
                                     <li>
-                                        <a href="#"
+                                        <a href="{% url 'literature' %}"
                                             class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Әдебиет</a>
                                     </li>
                                 </ul>
@@ -168,7 +168,7 @@
                                 <ul class="py-2 text-sm text-gray-700 dark:text-gray-400"
                                     aria-labelledby="dropdownLargeButton">
                                     <li>
-                                        <a href="#"
+                                        <a href="{% url 'chronicle' %}"
                                             class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Шежіре</a>
                                     </li>
                                 </ul>
@@ -176,19 +176,16 @@
                         </li>
 
                         <li>
-                            <a href="#" class="block py-2 pl-3 pr-4 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Қайырымдылық</a>
+                            <a href="{% url 'charity' %}" class="block py-2 pl-3 pr-4 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Қайырымдылық</a>
                         </li>
                         <li>
-                            <a href="#" class="block py-2 pl-3 pr-4 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Мақалалар</a>
+                            <a href="{% url 'articles' %}" class="block py-2 pl-3 pr-4 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Мақалалар</a>
                         </li>
                         <li>
-                            <a href="#" class="block py-2 pl-3 pr-4 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Балалар бөлімі</a>
+                            <a href="{% url 'children' %}" class="block py-2 pl-3 pr-4 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Балалар бөлімі</a>
                         </li>
                         <li>
-                            <a href="#" class="block py-2 pl-3 pr-4 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Бейне</a>
-                        </li>
-                        <li>
-                            <a href="#" class="block py-2 pl-3 pr-4 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Фото</a>
+                            <a href="{% url 'mediagallery' %}" class="block py-2 pl-3 pr-4 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Медиагалерея</a>
                         </li>
                     </ul>
                 </div>

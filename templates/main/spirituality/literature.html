@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Әдебиет{% endblock %}
+
+{% block content %}
+
+<!-- Historic page block -->
+<!-- ========================================================================================================================================================= -->
+<div class="flex justify-between items-start my-4">
+    <h1 class="ml-2 mb-6 font-bold text-3xl text-gray-800">Әдебиет</h1>
+
+    <!-- President -->
+    <!-- ========================================================================================================================================================= -->
+    <div
+        class="mt-14 w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow  dark:bg-gray-800 dark:border-gray-700 hidden lg:block">
+        <div class="flex flex-col items-center py-5 px-2">
+            <img class="w-24 h-24 mb-3 mt-3 rounded-full shadow-lg" src="{% static './images/president.jpg' %}"
+                alt="Қасым-Жомарт Тоқаев" />
+            <h5 class="mb-1 text-xl font-bold text-gray-900 dark:text-white">Қасым-Жомарт Тоқаев</h5>
+            <span class="text-sm text-gray-700 dark:text-gray-600">Қазақстан Республикасының президенті</span>
+            <span class="text-sm text-gray-400 dark:text-gray-300 text-center mt-2">
+                Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+                Reiciendis maxime quo vero culpa provident debitis nemo neque laborum perspiciatis ex!
+            </span>
+        </div>
+    </div>
+</div>
+{% endblock content %}
